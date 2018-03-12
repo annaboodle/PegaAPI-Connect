@@ -67,7 +67,7 @@ In Amazon Connect:
 
 <img src="/screenshots/store-customer-input.png" title="Store Customer Input" width="400">
 
-- Save the user input by adding a "Set contact attributes" block. Choose **Use attribute** and set **Type: System**, **Destination key: pinEntered**, and **Source Attribute: Stored customer input**.
+- Save the user input by adding a **Set contact attributes** block. Choose **Use attribute** and set **Type: System**, **Destination key: pinEntered**, and **Source Attribute: Stored customer input**.
 
 <img src="/screenshots/set-contact-attributes.png" title="Set Contact Attributes" width="400">
 
