@@ -1,13 +1,4 @@
-<style> 
-.connect-img {
-	border: 2px solid #000;
-	border-radius: 5px;
-	display: block;
-	margin: 0 auto;
-	max-width: 100%;
-	width: 400px; 
-}
-</style>
+
 
 # Pega API Lambda Boilerplate for integrating with Amazon Connect
 
@@ -74,23 +65,23 @@ In Amazon Connect:
 
 - Now return to **Routing > Contact Flows** to start building out your flow. To prompt the caller to enter a number, connect the entry point of your contact flow to a **Store Customer Input** block. 
 
-<img src="/screenshots/store-customer-input.png" title="Store Customer Input" class="connect-img">
+<img src="/screenshots/store-customer-input.png" title="Store Customer Input" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
 
 - Save the user input by adding a "Set contact attributes" block. Choose **Use attribute** and set **Type: System**, **Destination key: pinEntered**, and **Source Attribute: Stored customer input**.
 
-<img src="/screenshots/set-contact-attributes.png" title="Set Contact Attributes" class="connect-img">
+<img src="/screenshots/set-contact-attributes.png" title="Set Contact Attributes" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
 
 - Now add a **Invoke AWS Lambda function** block. Add the Function ARN of your new Lambda function. Under **Function input parameters**, choose **Send attribute**. Set **Type: System**, **Key: pinEntered**, and **Attribute: Stored customer input**.
 
-<img src="/screenshots/invoke-aws-lambda.png" title="Invoke AWS Lambda" class="connect-img">
+<img src="/screenshots/invoke-aws-lambda.png" title="Invoke AWS Lambda" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
 
 - Now add a **Set contact attributes** block. Choose **Use attribute** and set **Type: External**, **Destination key: userName**, and **Source Attribute: userName**.
 
-<img src="/screenshots/set-contact-attributes-2.png" title="Set Contact Attributes" class="connect-img">
+<img src="/screenshots/set-contact-attributes-2.png" title="Set Contact Attributes" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
 
 - Now you can use the variable you passed from Pega ("userName") in your contact flow. For example, the system can read out the variable to the caller: add a **Play Prompt** block to your contact flow, choose the **Text to speech** option, and use the syntax **$.External.userName**. 
 
-<img src="screenshots/play-prompt.png" title="Play Prompt" class="connect-img">
+<img src="screenshots/play-prompt.png" title="Play Prompt" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
 
 - Finish the flow by connecting your last block to the Disconnect block. (Be sure to add error paths to your flow as well; for testing, you can connect these to the Disconnect block or add new blocks for error messaging.)
 
