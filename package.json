@@ -1,0 +1,16 @@
+{
+  "name": "connect_integration",
+  "version": "1.0.0",
+  "description": "Amazon Connect integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.7.13",
+    "request": "^2.79.0",
+    "request-json": "^0.6.1"
+  }
+}
