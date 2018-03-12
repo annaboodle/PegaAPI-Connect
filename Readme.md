@@ -63,8 +63,11 @@ In Amazon Connect:
 
 - Now return to **Routing > Contact Flows** to start building out your flow. To prompt the caller to enter a number, connect the entry point of your contact flow to a **Store Customer Input** block. 
 
-![ScreenShot](screenshots/store-customer-input.png)
+<img src="/screenshots/store-customer-input.png" width="256" title="Store Customer Input">
 
+<!-- ![ScreenShot](screenshots/store-customer-input.png)
+ -->
+ 
 - Save the user input by adding a "Set contact attributes" block. Choose **Use attribute** and set **Type: System**, **Destination key: pinEntered**, and **Source Attribute: Stored customer input**.
 
 ![ScreenShot](screenshots/set-contact-attributes.png)
@@ -93,7 +96,7 @@ Create a new event template based on the Amazon Connect event that triggers your
 
 It should looks something like the following: 
 
-{ 
+```{ 
   "Details": { 
     "ContactData": { 
       "Attributes": { "pinEntered": "1234" },
@@ -112,6 +115,6 @@ It should looks something like the following:
     } 
   },
   "Name": "ContactFlowEvent" 
-}
+}```
 
 Once you've added and saved your new test, you can click **Test** in your Lambda to trigger a test.
