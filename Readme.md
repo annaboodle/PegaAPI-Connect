@@ -59,29 +59,29 @@ In Amazon Connect:
 
 - Claim a phone number. 
 
-- In Routing > Contact Flows, create and save a new contact flow.
+- In **Routing > Contact Flows**, create and save a new contact flow.
 
-- In Routing > Phone Numbers, choose the phone number you've claimed. Connect your number to your new flow by choosing your contact flow under “Contact Flow / IVR”.
+- In **Routing > Phone Numbers**, choose the phone number you've claimed. Connect your number to your new flow by choosing your contact flow under **Contact Flow / IVR**.
 
 - Now return to **Routing > Contact Flows** to start building out your flow. To prompt the caller to enter a number, connect the entry point of your contact flow to a **Store Customer Input** block. 
 
-<img src="/screenshots/store-customer-input.png" title="Store Customer Input" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
+<img src="/screenshots/store-customer-input.png" title="Store Customer Input" width="400">
 
 - Save the user input by adding a "Set contact attributes" block. Choose **Use attribute** and set **Type: System**, **Destination key: pinEntered**, and **Source Attribute: Stored customer input**.
 
-<img src="/screenshots/set-contact-attributes.png" title="Set Contact Attributes" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
+<img src="/screenshots/set-contact-attributes.png" title="Set Contact Attributes" width="400">
 
 - Now add a **Invoke AWS Lambda function** block. Add the Function ARN of your new Lambda function. Under **Function input parameters**, choose **Send attribute**. Set **Type: System**, **Key: pinEntered**, and **Attribute: Stored customer input**.
 
-<img src="/screenshots/invoke-aws-lambda.png" title="Invoke AWS Lambda" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
+<img src="/screenshots/invoke-aws-lambda.png" title="Invoke AWS Lambda" width="400">
 
 - Now add a **Set contact attributes** block. Choose **Use attribute** and set **Type: External**, **Destination key: userName**, and **Source Attribute: userName**.
 
-<img src="/screenshots/set-contact-attributes-2.png" title="Set Contact Attributes" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
+<img src="/screenshots/set-contact-attributes-2.png" title="Set Contact Attributes" width="400">
 
 - Now you can use the variable you passed from Pega ("userName") in your contact flow. For example, the system can read out the variable to the caller: add a **Play Prompt** block to your contact flow, choose the **Text to speech** option, and use the syntax **$.External.userName**. 
 
-<img src="screenshots/play-prompt.png" title="Play Prompt" class="connect-img" style="border: 2px solid #000; border-radius: 5px; display: block; margin: 0 auto; max-width: 100%; width: 400px">
+<img src="screenshots/play-prompt.png" title="Play Prompt" width="400">
 
 - Finish the flow by connecting your last block to the Disconnect block. (Be sure to add error paths to your flow as well; for testing, you can connect these to the Disconnect block or add new blocks for error messaging.)
 
@@ -91,7 +91,7 @@ Finally, to confirm that you've configured your function properly, you'll want t
 
 ![ScreenShot](screenshots/test-event.png)
 
-Create a new event template based on the Amazon Connect event that triggers your Lambda. It may be helpful to add a console.log to your lambda function to log the event, trigger the function with Amazon Connect, then review the AWS Lambda logs in Monitoring > View logs in Cloudwatch. Copy the JSON structure of an event sent from Amazon Connect and use this to create your test event. 
+Create a new event template based on the Amazon Connect event that triggers your Lambda. It may be helpful to add a console.log to your lambda function to log the event, trigger the function with Amazon Connect, then review the AWS Lambda logs in **Monitoring > View logs in Cloudwatch**. Copy the JSON structure of an event sent from Amazon Connect and use this to create your test event. 
 
 It should looks something like the following: 
 
