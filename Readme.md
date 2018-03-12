@@ -83,7 +83,9 @@ In Amazon Connect:
 
 <img src="screenshots/play-prompt.png" title="Play Prompt" width="400">
 
-- Finish the flow by connecting your last block to the Disconnect block. (Be sure to add error paths to your flow as well; for testing, you can connect these to the Disconnect block or add new blocks for error messaging.)
+- Finish the flow by connecting your last block to the Disconnect block. (Be sure to add error paths to your flow as well; for testing, you can connect these to the Disconnect block or add new blocks for error messaging.) When you're done, your flow should look something like this: 
+
+![ScreenShot](screenshots/contact-flow.png)
 
 ## Testing
 
