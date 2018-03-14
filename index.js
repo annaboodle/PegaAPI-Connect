@@ -1,6 +1,6 @@
-//process.env.NODE_CONFIG_DIR = process.env["LAMBDA_TASK_ROOT"];
+//process.env.NODE_CONFIG_DIR = process.env['LAMBDA_TASK_ROOT'];
 var AWS = require('aws-sdk');
-request = require('request-json');
+var request = require('request-json');
 
 exports.handler = (event, context, callback) => {
 
@@ -13,12 +13,12 @@ exports.handler = (event, context, callback) => {
 
     //Case class and properties (note that you'll need to create the custom 'PIN' and 'PhoneNumber' properties in your case type in Pega)
     var data = {
-              "caseTypeID" : process.env.PEGA_API_ENDPOINT,
-              "processID" : "pyStartCase",
-              "content" : { "pyNote": process.env.CASE_PROP_PYNOTE ? process.env.CASE_PROP_PYNOTE : "Service Case",
-                            "pyLabel": process.env.CASE_PROP_PYLABEL ? process.env.CASE_PROP_PYLABEL : "pyLabel",
-                            "PIN": pin,
-                            "PhoneNumber": phoneNumber }
+              'caseTypeID' : process.env.PEGA_API_ENDPOINT,
+              'processID' : 'pyStartCase',
+              'content' : { 'pyNote': process.env.CASE_PROP_PYNOTE ? process.env.CASE_PROP_PYNOTE : 'Service Case',
+                            'pyLabel': process.env.CASE_PROP_PYLABEL ? process.env.CASE_PROP_PYLABEL : 'pyLabel',
+                            'PIN': pin,
+                            'PhoneNumber': phoneNumber }
                };
 
     //Set up basic Pega API auth
@@ -34,7 +34,7 @@ exports.handler = (event, context, callback) => {
     //Add and customize these values depending on what you need to return
       function buildResponse() {
           return {
-              userName: "Test User"
+              userName: 'Test User'
           };
       }
 

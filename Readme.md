@@ -35,17 +35,17 @@ In AWS Lambda:
 
 - Set your enviroment variables 
 
-**CASE_PROP_PYLABEL** - This will set the pyLabel property of your case
+**CASE_PROP_PYLABEL** - This will set the pyLabel property of your case. You can set this to any string. (In the index.js file, you can edit the json sent to the Pega API to populate other case-specific properties. pyLabel and pyNote are just used as examples.) 
 
-**CASE_PROP_PYNOTE** - This will set the pyNote property of your case
+**CASE_PROP_PYNOTE** - This will set the pyNote property of your case. You can set this to any string.
 
-**OPERATOR_ID** - The operator ID to authenticate the API call
+**OPERATOR_ID** - The operator ID to authenticate the API call.
 
-**OPERATOR_PWD** - The operators password
+**OPERATOR_PWD** - The operator's password.
 
-**PEGA_API_ENDPOINT** - Enter the case class that you copied earlier
+**PEGA_CASETYPE_ID** - The case class that you copied earlier.
 
-**SYS_URL** - The url of your Pega instance
+**SYS_URL** - The URL of your Pega instance.
 
 When you're done, your environment variables should look like the following: 
 
