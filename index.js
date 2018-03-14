@@ -13,7 +13,7 @@ exports.handler = (event, context, callback) => {
 
     //Case class and properties (note that you'll need to create the custom 'PIN' and 'PhoneNumber' properties in your case type in Pega)
     var data = {
-              'caseTypeID' : process.env.PEGA_API_ENDPOINT,
+              'caseTypeID' : process.env.PEGA_CASETYPE_ID,
               'processID' : 'pyStartCase',
               'content' : { 'pyNote': process.env.CASE_PROP_PYNOTE ? process.env.CASE_PROP_PYNOTE : 'Service Case',
                             'pyLabel': process.env.CASE_PROP_PYLABEL ? process.env.CASE_PROP_PYLABEL : 'pyLabel',

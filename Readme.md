@@ -33,7 +33,7 @@ In AWS Lambda:
 
 ![ScreenShot](screenshots/upload-deployment-package.png)
 
-- Set your enviroment variables 
+- Set your enviroment variables:
 
 **CASE_PROP_PYLABEL** - This will set the pyLabel property of your case. You can set this to any string. (In the index.js file, you can edit the json sent to the Pega API to populate other case-specific properties. pyLabel and pyNote are just used as examples.) 
 
